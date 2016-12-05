@@ -1,0 +1,2 @@
+[25-Nov-2016 03:08:31 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/planetla/public_html/fitroute/app/Http/Controllers/LoginController.php on line 19
+[30-Nov-2016 19:54:07 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/planetla/public_html/fitroute/app/Http/Controllers/LoginController.php on line 19

@@ -1,0 +1,17 @@
+[25-Nov-2016 11:56:18 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Place.php on line 8
+[25-Nov-2016 11:56:41 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Gallery.php on line 8
+[25-Nov-2016 11:56:51 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/AppUser.php on line 13
+[25-Nov-2016 11:57:12 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Facility.php on line 8
+[25-Nov-2016 11:57:22 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Bookmark.php on line 8
+[25-Nov-2016 11:57:32 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Category.php on line 9
+[25-Nov-2016 11:57:43 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Subcategory.php on line 8
+[25-Nov-2016 18:40:47 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Gallery.php on line 8
+[26-Nov-2016 00:30:39 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Gallery.php on line 8
+[26-Nov-2016 06:58:36 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Gallery.php on line 8
+[26-Nov-2016 12:34:53 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Gallery.php on line 8
+[26-Nov-2016 14:50:06 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Place.php on line 8
+[26-Nov-2016 14:50:38 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/AppUser.php on line 13
+[26-Nov-2016 14:51:17 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Facility.php on line 8
+[26-Nov-2016 14:51:34 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Bookmark.php on line 8
+[26-Nov-2016 14:52:16 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Category.php on line 9
+[26-Nov-2016 14:52:50 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/planetla/public_html/fitroute/bootstrap/app/Subcategory.php on line 8
