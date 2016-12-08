@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Place;
+use App\Bookmark;
 use Illuminate\Http\Response;
 use Illuminate\Routing\ResponseFactory;
 use DB;
@@ -91,6 +92,38 @@ class PlaceController extends Controller
                 return response()->json(['success' => 'No places available'], 200);
     }
 
+    public function getBookmarks(Request $request)
+    {
+        $bookmarks = Place::select('places.*')->with('subcategory', 'facilities', 'gallery')->join('bookmarks', 'bookmarks.place_id', '=', 'places.id')->where('bookmarks.user_id', '=', $request->get('user_id'))->get();
+        if(count($bookmarks) > 0)
+            return $this->response->array($bookmarks);
+        else
+            return response()->json(['error' => 'No bookmarks available'], 200);
+    }
+
+    public function addBookmark(Request $request)
+    {
+        $inputs = $request->all();
+        if($inputs['user_id'] && $inputs['place_id'])
+        {
+            $user = Bookmark::firstOrCreate([
+                'user_id'  => $inputs['user_id'],
+                'place_id' => $inputs['place_id']
+                ]);
+        }
+        return response()->json(['status' => 'success'], 200);
+    }
+
+    public function deleteBookmark(Request $request, $user_id, $place_id)
+    {
+        $inputs = $request->all();
+        if($user_id && $place_id)
+        {
+            $user = Bookmark::where('bookmarks.user_id', '=', $user_id)->where('bookmarks.place_id', '=', $place_id)->delete();
+        }
+        return response()->json(['status' => 'success'], 200);
+    }
+
     public function distance($lat1, $lon1, $lat2, $lon2) {
         $theta = $lon1 - $lon2;
         $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -131,7 +164,5 @@ class PlaceController extends Controller
         $lng = ($lng3*180)/$pi;
         return ['lat' => $lat,'lng' => $lng];
     }
-
-
     
 }

@@ -24,4 +24,9 @@ class Gallery extends Model
     {
         return $this->belongsTo('App\Place');
     }
+
+    public function getImageAttribute($value)
+    {
+        return url('uploads/places/gallery-'.$value);
+    }
 }

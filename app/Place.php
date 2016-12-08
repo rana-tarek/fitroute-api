@@ -35,4 +35,9 @@ class Place extends Model
         return $this->belongsToMany('App\Facility', 'place_facility');
     }
 
+    public function getThumbnailAttribute($value)
+    {
+        return url('uploads/places/thumb-'.$value);
+    }
+
 }

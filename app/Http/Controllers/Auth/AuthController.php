@@ -14,8 +14,8 @@ use Hash;
 class AuthController extends Controller
 {
     protected $redirectPath = 'admin';
-    protected $loginPath = 'login';
-    protected $redirectAfterLogout = 'login';
+    protected $loginPath = 'signin';
+    protected $redirectAfterLogout = 'signin';
     
     /*
     |--------------------------------------------------------------------------
@@ -61,12 +61,12 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    // protected function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'password' => bcrypt($data['password']),
-    //     ]);
-    // }
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+    }
 }
