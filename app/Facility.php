@@ -20,4 +20,9 @@ class Facility extends Model
      */
     protected $fillable = ['name', 'icon'];
 
+    public function getIconAttribute($value)
+    {
+        return url($value);
+    }
+
 }
