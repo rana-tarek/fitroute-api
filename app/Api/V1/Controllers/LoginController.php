@@ -10,7 +10,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\PayloadFactory;
 use JWTFactory;
-use App\AppUser;
+use App\User;
 use DB;
 use Illuminate\Http\Response;
 use Illuminate\Routing\ResponseFactory;
@@ -32,7 +32,7 @@ class LoginController extends Controller
         $inputs = $request->all();
         if($inputs['user_id'])
         {
-            $user = AppUser::find($inputs['user_id']);
+            $user = User::find($inputs['user_id']);
             $user->registeration_id = $inputs['registeration_id'];
             $user->device_type = $inputs['device_type'];
             $user->save();

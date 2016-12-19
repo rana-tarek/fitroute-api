@@ -10,7 +10,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\PayloadFactory;
 use JWTFactory;
-use App\AppUser;
+use App\User;
 use DB;
 use Illuminate\Http\Response;
 use Illuminate\Routing\ResponseFactory;
@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function generateGuestToken()
     {
 
-        $guest = AppUser::firstOrCreate(['name' => 'Guest', 'password' => md5('jan25'), 'email' => 'guest@guest.com']);
+        $guest = User::firstOrCreate(['name' => 'Guest', 'password' => md5('jan25'), 'email' => 'guest@guest.com']);
         // Generate JWT token
         try {
             // verify the credentials and create a token for the user
@@ -41,9 +41,9 @@ class LoginController extends Controller
     {
         $inputs = $request->all();
         
-        $user = AppUser::where('app_users.social_id', $inputs['social_id'])->orWhere('app_users.email', $inputs['email'])->first();
+        $user = User::where('app_users.social_id', $inputs['social_id'])->orWhere('app_users.email', $inputs['email'])->first();
         if(!$user){
-            $user = AppUser::Create([
+            $user = User::Create([
                 'name'  => $inputs['name'],
                 'email' => $inputs['email'],
                 'image' => $inputs['image'],

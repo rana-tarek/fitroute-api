@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\AppUser;
+use App\User;
 use App\User;
 use Auth;
 
-class AppUsersController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class AppUsersController extends Controller
      */
     public function index()
     {
-        $users = AppUser::all()->except(1);
+        $users = User::all()->where('is_admin', 0)->except(1);
         return view('admin.users.index', compact('users'));
     }
 
@@ -63,7 +63,7 @@ class AppUsersController extends Controller
      */
     public function edit($id)
     {
-        $users = AppUser::findOrFail($id);
+        $users = User::findOrFail($id);
         return view('admin.users.edit', compact('users'));
     }
 
@@ -87,7 +87,7 @@ class AppUsersController extends Controller
      */
     public function destroy($id)
     {
-        $user = AppUser::findOrFail($id);    
+        $user = User::findOrFail($id);    
         $user->delete();
         session()->flash('flash_message', 'User deleted!');
         return redirect('users');
