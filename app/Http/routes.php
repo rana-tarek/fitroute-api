@@ -37,6 +37,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('places/{id}/edit', 'Admin\PlacesController@edit');
 	Route::get('places/{id}/delete', 'Admin\PlacesController@destroy');
 	Route::patch('places/{id}', 'Admin\PlacesController@update');
+	Route::post('places/getSubcategories', 'Admin\PlacesController@getSubcategories');
 	// Categories
 	Route::get('categories', 'Admin\CategoriesController@index');
 	Route::get('categories/create', 'Admin\CategoriesController@create');

@@ -85,14 +85,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="subcategory" class="control-label col-lg-2">Subcategory</label>
+                                <label for="category" class="control-label col-lg-2">Category</label>
                                 <div class="col-lg-5">
-                                    <select id="subcategory" class="form-control m-b-10 select2" name="subcategory_id">
-                                        @foreach ($subcategories as $subcategory)
-                                            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                    <select id="category" class="form-control m-b-10 select2" name="category_id" onchange="getSubcategories()">
+                                    <option selected disabled>Please Select</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                            </div>
+                            <div class="form-group" id="subcategories" style="display:none">
+                              <div id="loading" style="display:none"><img class="center-block" src="{{URL::to('/')}}/backend/img/loading.gif"/></div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 col-md-4 control-label">Facilities</label>
@@ -194,6 +198,24 @@
 
 @section('scripts')
 <script>
+
+
+function getSubcategories(){
+        var e = document.getElementById("category");
+        var strUser = e.options[e.selectedIndex].value;
+        $("#subcategories").show();
+        $("#subcategory_div").html("");
+        $("#loading").show();
+        $.ajax({
+              url: 'getSubcategories',
+              type: "post",
+              data: {'id':strUser, '_token': $('input[name=_token]').val()},
+              success: function(data){
+                $("#loading").hide();
+                $("#subcategories").html(data);
+              }
+            }); 
+    }
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.

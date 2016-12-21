@@ -41,7 +41,10 @@ class Authenticate
                 return redirect()->guest('signin');
             }
         }
-
+        else{
+            if(!$this->auth->user()->is_admin)
+                return redirect()->guest('signin');
+        }
         return $next($request);
     }
 }

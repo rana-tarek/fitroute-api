@@ -211,4 +211,11 @@ class PlacesController extends Controller
         return $file_name;
     }
 
+    public function getSubcategories(Request $request){
+        $inputs = $request->all();
+        $index = $inputs['id'];
+        $subcategories = Subcategory::where('category_id', '=', $index)->get();
+        return view('admin.place.subcategories', compact('subcategories'));
+    }
+
 }
